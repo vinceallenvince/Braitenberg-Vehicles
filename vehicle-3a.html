@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="keywords" content="JavaScript, Framework, Animation, Natural, System" />
+  <meta name="description" content="FloraJS simulates natural systems using JavaScript." />
+  <meta name="viewport" content = "user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name='apple-mobile-web-app-capable' content='yes' />
+  <meta property='og:title' content='FloraJS' />
+  <meta property='og:url' content='http://www.florajs.com' />
+  <meta property='og:site_name' content='FloraJS' />
+  <title>FloraJS | Simulate natural systems with JavaScript</title>
+  <link rel="stylesheet" href="css/Burner.min.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/Flora.min.css" type="text/css" charset="utf-8" />
+  <script src="scripts/Burner.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="scripts/Flora.min.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+
+    	function createMotor(id, c) {
+    		var color = c || [255, 255, 255];
+    		var motor = document.createElement('div');
+		    motor.id = 'motor' + id;
+		    motor.className = 'motor';
+		    motor.style.cssText = 'position: absolute; top: 7px; left: 4px; width: 8px; height: 2px; background: #666; opacity: 1;';
+		    motor.style.backgroundColor = 'rgb(' + color[0] + ',' + color[1] + ',' + color[2] + ')';
+		    return motor;
+    	}
+
+    	var rand = Flora.Utils.getRandomNumber;
+
+      var world = new Burner.World(document.body, {
+        gravity: new Burner.Vector(0, 0),
+        c: 0,
+        borderWidth: 1,
+      	borderStyle: 'dashed',
+      	borderColor: [100, 100, 100],
+			  width: Flora.Utils.getWindowSize().width / 0.75,
+			  height: Flora.Utils.getWindowSize().height / 0.75,
+			  boundToWindow: false
+      });
+
+      Burner.System.init(function() {
+
+      	// Vehicles
+      	for (var i = 0; i < 5; i++) {
+
+	      	var agent = this.add('Agent', {
+	          angle: rand(0, 360),
+	          motorSpeed: 2,
+	          minSpeed: 1,
+	          maxSpeed: 10,
+	          width: 20,
+	          height: 20,
+	          location: new Burner.Vector(world.width / 2, world.height / 2),
+	          color: !i ? [255, 255, 255] : [255, 100, 0],
+      			borderColor: !i ? [255, 100, 0] : [255, 150, 50],
+	          borderWidth: 2,
+	          borderStyle: 'solid',
+	          controlCamera: !i,
+	          wrapWorldEdges: true,
+	          sensors: [
+	            this.add('Sensor', {
+	              type: 'food',
+	              displayRange: !i,
+	              displayConnector: true,
+	              behavior: 'LOVES'
+	            })
+	          ],
+	          motorRotation: 0,
+	          beforeStep: function() {
+	          	var motor = document.getElementById('motor' + this.id),
+	          	a = this.motorRotation;
+
+				      if (motor) {
+				        motor.style.webkitTransform = 'rotate(' + a + 'deg)';
+				        this.motorRotation += Flora.Utils.map(this.velocity.mag(),
+				        		this.minSpeed, this.maxSpeed, 10, 50);
+				      }
+	          }
+	        });
+
+					agent.el.appendChild(createMotor(agent.id, !i ? [100, 100, 100] : [255, 255, 255]));
+				}
+
+				// Stimulus
+      	for (var i = 0; i < 20; i++) {
+	      	this.add('Stimulus', {
+	          type: 'food',
+	          location: new Burner.Vector(rand(0, world.width), rand(0, world.height))
+	        });
+      	}
+
+      }, world);
+
+    </script>
+
+  </body>
+</html>
