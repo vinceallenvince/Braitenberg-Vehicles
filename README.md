@@ -8,32 +8,32 @@ Has one sensor tuned to temperature and directly wired to one motor. It slows do
 
 <a href='http://vinceallenvince.github.io/Braitenberg-Vehicles/vehicle-1.html'><img src='http://vinceallenvince.github.io/Braitenberg-Vehicles/images/alive.jpg' width='320' height='320'></a>
 
-###Vehicle 2a
+###[Vehicle 2a](http://vinceallenvince.github.io/Braitenberg-Vehicles/vehicle-2a.html)
 Has two sensors tuned to light and wired to motors on the same side of the vehicle.
 
 <a href='http://vinceallenvince.github.io/Braitenberg-Vehicles/vehicle-2a.html'><img src='http://vinceallenvince.github.io/Braitenberg-Vehicles/images/coward.jpg' width='320' height='320'></a>
 
-###Vehicle 2b
+###[Vehicle 2b](http://vinceallenvince.github.io/Braitenberg-Vehicles/vehicle-2b.html)
 Has two sensors tuned to light and wired to motors on the opposite side of the vehicle.
 
 <a href='http://vinceallenvince.github.io/Braitenberg-Vehicles/vehicle-2b.html'><img src='http://vinceallenvince.github.io/Braitenberg-Vehicles/images/aggro.jpg' width='320' height='320'></a>
 
-###Vehicle 3a
+###[Vehicle 3a](http://vinceallenvince.github.io/Braitenberg-Vehicles/vehicle-3a.html)
 Has two sensors tuned to food and wired to motors on the opposite side of the vehicle. The senor's current is invented so the motor receives the most activity in the absence of light.
 
 <a href='http://vinceallenvince.github.io/Braitenberg-Vehicles/vehicle-3a.html'><img src='http://vinceallenvince.github.io/Braitenberg-Vehicles/images/loves.jpg' width='320' height='320'></a>
 
-###Vehicle 3b
+###[Vehicle 3b](http://vinceallenvince.github.io/Braitenberg-Vehicles/vehicle-3b.html)
 Has two sensors tuned to food and wired to motors on the opposite side of the vehicle. The senor's current is dampened to prevent drastic differences between the speed of the motors.
 
 <a href='http://vinceallenvince.github.io/Braitenberg-Vehicles/vehicle-3b.html'><img src='http://vinceallenvince.github.io/Braitenberg-Vehicles/images/explorer.jpg' width='320' height='320'></a>
 
-###Vehicle Curious
+###[Vehicle Curious](http://vinceallenvince.github.io/Braitenberg-Vehicles/vehicle-4a.html)
 Has two sensors tuned to heat and wired to motors on the opposite side of the vehicle. Vehicle attempts to arrive at midpoint between itself and the stimulus. After arriving, it reverses direction and accelerates to max speed.
 
 <a href='http://vinceallenvince.github.io/Braitenberg-Vehicles/vehicle-4a.html'><img src='http://vinceallenvince.github.io/Braitenberg-Vehicles/images/curious.jpg' width='320' height='320'></a>
 
-###Vehicle Values
+###[Vehicle Values](http://vinceallenvince.github.io/Braitenberg-Vehicles/vehicle-4b.html)
 Combines all the above sensors.
 
 <a href='http://vinceallenvince.github.io/Braitenberg-Vehicles/vehicle-4b.html'><img src='http://vinceallenvince.github.io/Braitenberg-Vehicles/images/values.jpg' width='320' height='320'></a>
