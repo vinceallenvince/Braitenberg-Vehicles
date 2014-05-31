@@ -18,17 +18,17 @@
   <body>
     <script type="text/javascript" charset="utf-8">
 
-    	function createMotor(id, c) {
-    		var color = c || [255, 255, 255];
-    		var motor = document.createElement('div');
-		    motor.id = 'motor' + id;
-		    motor.className = 'motor';
-		    motor.style.cssText = 'position: absolute; top: 7px; left: 4px; width: 8px; height: 2px; background: #666; opacity: 1;';
-		    motor.style.backgroundColor = 'rgb(' + color[0] + ',' + color[1] + ',' + color[2] + ')';
-		    return motor;
-    	}
+			function createMotor(id, c) {
+				var color = c || [255, 255, 255];
+				var motor = document.createElement('div');
+			    motor.id = 'motor' + id;
+			    motor.className = 'motor';
+			    motor.style.cssText = 'position: absolute; top: 7px; left: 4px; width: 8px; height: 2px; background: #666; opacity: 1;';
+			    motor.style.backgroundColor = 'rgb(' + color[0] + ',' + color[1] + ',' + color[2] + ')';
+			    return motor;
+			}
 
-    	var rand = Flora.Utils.getRandomNumber;
+			var rand = Flora.Utils.getRandomNumber;
 
       var world = new Burner.World(document.body, {
         gravity: new Burner.Vector(0, 0),

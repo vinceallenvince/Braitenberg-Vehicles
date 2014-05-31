@@ -14,9 +14,34 @@
   <link rel="stylesheet" href="css/Flora.min.css" type="text/css" charset="utf-8" />
   <script src="scripts/Burner.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="scripts/Flora.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="scripts/audio.js" type="text/javascript" charset="utf-8"></script>
   </head>
   <body>
     <script type="text/javascript" charset="utf-8">
+
+    	var Gain = new AudioMods.Gain(),
+          OscA = new AudioMods.Oscillator(),
+          OscB = new AudioMods.Oscillator(),
+          Convolver = new AudioMods.Convolver(),
+          Delay = new AudioMods.Delay();
+
+      var OscMin = 150,
+      		OscMax = 200;
+
+  		OscA.toggle();
+      OscB.toggle();
+      Convolver.setEffect(3);
+      Delay.setDelay(0);
+
+      AudioMods.connect(Gain.node, AudioMods.audio_context.destination);
+      AudioMods.connect(Delay.node, Gain.node);
+      AudioMods.connect(Convolver.node, Delay.node);
+      AudioMods.connect(OscA.osc, Convolver.node);
+      AudioMods.connect(OscB.osc, Convolver.node);
+
+      Gain.changeGain(0.25);
+
+      //
 
     	function createMotor(id, c) {
     		var color = c || [255, 255, 255];
@@ -103,7 +128,26 @@
 	        });
       	}
 
+      	// Audio agent
+      	this.add('Agent', {
+      		isStatic: true,
+      		visibility: 'hidden',
+      		beforeStep: function() {
+
+      			var valOscA = Flora.Utils.map(Flora.SimplexNoise.noise(Burner.System.clock * 0.001, 0),
+      				-1, 1, OscMin, OscMax);
+      			OscA.changeFrequency(valOscA);
+
+      			var valOscB = Flora.Utils.map(Flora.SimplexNoise.noise(Burner.System.clock * -0.001, 0),
+      				-1, 1, OscMin, OscMax);
+      			OscB.changeFrequency(valOscB);
+      		}
+      	});
+
       }, world);
+
+
+
 
     </script>
 
