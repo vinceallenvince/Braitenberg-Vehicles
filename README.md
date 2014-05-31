@@ -5,6 +5,7 @@ The examples below recreate Braitenberg Vechiles using a JavaScript framework ca
 
 ###[Vehicle 1](http://vinceallenvince.github.io/Braitenberg-Vehicles/vehicle-1.html)
 Has one sensor tuned to temperature and directly wired to one motor. It slows down around cold and speed up around heat.
+
 <a href='http://vinceallenvince.github.io/Braitenberg-Vehicles/vehicle-1.html'><img src='http://vinceallenvince.github.io/Braitenberg-Vehicles/images/alive.jpg' width='320' height='320'></a>
 
 ###Vehicle 2a
